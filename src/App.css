@@ -1,38 +1,162 @@
+/* Centering Content */
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
+  background-color: #fff5f7;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Container for Animations */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* GIF Styling */
+.allImg {
+  width: 150px;
+  height: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Greeting Animation */
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  animation: fadeBounce 1.5s ease-in-out;
+}
+
+/* Down Arrow */
+.arrow-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1s infinite alternate ease-in-out;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+/* Question Section */
+.valentine-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  height: 100vh; /* Ensure it takes full viewport height */
+}
+
+.question-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.button-group button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+/* Yes button styling */
+.yes-btn {
+  background-color: green;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* No button styling */
+.no-btn {
+  background-color: red;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.response-message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.dancing-image-1 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+  animation: shake 1s infinite; /* Add shake animation */
+}
+.dancing-image-2 {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(-50%);
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+}
+
+/* ✨ Animations ✨ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeBounce {
+  0% { opacity: 0; transform: translateY(-20px); }
+  50% { opacity: 0.5; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heartPop {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) rotate(-45deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateY(10px) rotate(-45deg);
   }
 }
